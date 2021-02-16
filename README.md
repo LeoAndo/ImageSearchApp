@@ -5,7 +5,7 @@ https://unsplash.com/developers
 
 2. Set API Key
 ```groovy
-buildConfigField("String", "UNSPLASH_ACCESS_KEY", "PUT APIKEY")
+buildConfigField("String", "UNSPLASH_ACCESS_KEY", "APIKEY")
 ```
 3. run app
 

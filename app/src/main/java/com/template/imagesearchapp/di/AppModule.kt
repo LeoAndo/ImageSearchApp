@@ -11,14 +11,12 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
 
     @Provides
-    @Singleton
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val logger = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
             override fun log(message: String) {
@@ -31,8 +29,7 @@ object AppModule {
 
 
     @Provides
-    @Singleton
-    fun provideRetrofit(logger: HttpLoggingInterceptor): UnsplashApi {
+    fun provideUnsplashApi(logger: HttpLoggingInterceptor): UnsplashApi {
         val client = OkHttpClient.Builder()
             .addInterceptor(logger)
             .build()

@@ -2,11 +2,13 @@ package com.template.imagesearchapp.data
 
 import android.util.Log
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.template.imagesearchapp.api.UnsplashApi
 import retrofit2.HttpException
 import java.io.IOException
 
 private const val UNSPLASH_STARTING_PAGE_INDEX = 1
+private const val UNSPLASH_LAST_PAGE_INDEX = 5
 private val TAG = UnsplashPagingSource::class.java.simpleName
 
 class UnsplashPagingSource(
@@ -22,17 +24,27 @@ class UnsplashPagingSource(
         )
 
         return try {
-            val response = api.searchPhotos(query, position, params.loadSize)
-            val photos = response.results
+            val photos = api.searchPhotos(query, position, params.loadSize).results
             LoadResult.Page(
                 data = photos,
                 prevKey = if (position == UNSPLASH_STARTING_PAGE_INDEX) null else position - 1,
-                nextKey = if (photos.isEmpty()) null else position + 1
+                nextKey = if (photos.isEmpty() || position == UNSPLASH_LAST_PAGE_INDEX) null else position + 1 // paging終了するときは、nullをセット.
             )
         } catch (ex: IOException) {
             LoadResult.Error(ex)
         } catch (ex: HttpException) {
+            Log.d(TAG, "ex: $ex") // なぜかたまに、403になる時ある.
             LoadResult.Error(ex)
+        }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, UnSplashPhoto>): Int? {
+        return state.anchorPosition?.let { anchorPosition ->
+            // This loads starting from previous page, but since PagingConfig.initialLoadSize spans
+            // multiple pages, the initial load will still load items centered around
+            // anchorPosition. This also prevents needing to immediately launch prepend due to
+            // prefetchDistance.
+            state.closestPageToPosition(anchorPosition)?.prevKey
         }
     }
 }

@@ -9,12 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/image_view"
         android:background="@drawable/gradient"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -22,16 +21,43 @@
             android:id="@+id/image_avatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_centerVertical="true"
             tools:src="@drawable/ic_user" />
 
         <TextView
-            android:id="@+id/text_view_user_name"
+            android:id="@+id/text_view_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/image_avatar"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="#fff"
-            tools:text="username ABBBBCCCCCCCCCCCCCCCCCCCCCCCC" />
-    </LinearLayout>
+            tools:text="id: ABBBBCCCCCCCCCCCCCCCCCCCCCCCC" />
+
+        <TextView
+            android:id="@+id/text_view_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_id"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/image_avatar"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#fff"
+            tools:text="name: username...." />
+
+        <TextView
+            android:id="@+id/text_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_username"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/image_avatar"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#fff"
+            tools:text="likes: 700" />
+
+    </RelativeLayout>
 </RelativeLayout>

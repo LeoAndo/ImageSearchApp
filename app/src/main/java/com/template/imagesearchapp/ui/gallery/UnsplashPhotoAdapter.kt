@@ -6,7 +6,6 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.template.imagesearchapp.R
 import com.template.imagesearchapp.data.UnSplashPhoto
 import com.template.imagesearchapp.databinding.ItemUnsplashPhotoBinding
@@ -42,16 +41,17 @@ class UnsplashPhotoAdapter(private val onItemClick: (UnSplashPhoto) -> Unit) :
             binding.apply {
                 Glide.with(itemView)
                     .load(photo.urls.regular)
-                    .transition(DrawableTransitionOptions.withCrossFade(100))
-                    .error(R.drawable.ic_error)
+                    .centerCrop()
+                    .placeholder(R.mipmap.ic_launcher_round)
                     .into(imageView)
 
-                textViewUserName.text = photo.user.username
-
+                textViewId.text = """id: ${photo.id}"""
+                textViewUsername.text = """name: ${photo.user.username}"""
+                textLikes.text = """likes: ${photo.likes}"""
                 Glide.with(itemView)
                     .load(photo.user.profileImage.small)
-                    .transition(DrawableTransitionOptions.withCrossFade(100))
-                    .error(R.drawable.ic_error)
+                    .centerCrop()
+                    .placeholder(R.mipmap.ic_launcher_round)
                     .into(imageAvatar)
             }
         }

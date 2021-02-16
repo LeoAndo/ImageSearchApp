@@ -12,6 +12,14 @@ interface UnsplashApi {
         const val CLIENT_ID = BuildConfig.UNSPLASH_ACCESS_KEY
     }
 
+    /*
+    次ページがなくなると、以下のレスポンスになる
+    {
+    "total": 0,
+    "total_pages": 0,
+    "results":[]
+    }
+     */
     @Headers("Accept-Version: v1", "Authorization: Client-ID $CLIENT_ID")
     @GET("search/photos")
     suspend fun searchPhotos(

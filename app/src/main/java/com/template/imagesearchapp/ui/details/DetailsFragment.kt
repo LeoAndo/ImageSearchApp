@@ -38,4 +38,9 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
             }
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -2,7 +2,7 @@ package com.template.imagesearchapp.data
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class UnSplashPhoto(
@@ -10,6 +10,7 @@ data class UnSplashPhoto(
     val description: String?,
     val urls: UnSplashPhotoUrls,
     val user: UnSplashUser,
+    val likes: Int
 ) : Parcelable {
     @Parcelize
     data class UnSplashPhotoUrls(

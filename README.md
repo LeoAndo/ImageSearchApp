@@ -12,3 +12,12 @@ buildConfigField("String", "UNSPLASH_ACCESS_KEY", "PUT APIKEY")
 ### Screentshot
 
 <img src="capture.gif" width=320 />
+
+### Features
+
+- Navigation Component
+- DI: Dagger Hilt
+- Network: Okhttp + Retrofit + GSON
+- Glide
+- Paging: Paging 3
+- UI: Material Component

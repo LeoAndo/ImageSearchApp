@@ -50,8 +50,7 @@ class UnsplashPhotoAdapter(private val onItemClick: (UnSplashPhoto) -> Unit) :
                 textLikes.text = """likes: ${photo.likes}"""
                 Glide.with(itemView)
                     .load(photo.user.profileImage.small)
-                    .centerCrop()
-                    .placeholder(R.mipmap.ic_launcher_round)
+                    .placeholder(R.drawable.ic_user)
                     .into(imageAvatar)
             }
         }

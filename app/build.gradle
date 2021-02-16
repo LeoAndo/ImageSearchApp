@@ -19,7 +19,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // TODO
-        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "PUT APIKEY")
+        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"-QVBMwGFoRbxRA5HgaFT9Q4-RctuHro48hhga5yNKY0\"")
     }
 
     buildTypes {

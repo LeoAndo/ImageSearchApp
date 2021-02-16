@@ -19,5 +19,5 @@ buildConfigField("String", "UNSPLASH_ACCESS_KEY", "PUT APIKEY")
 - DI: Dagger Hilt
 - Network: Okhttp + Retrofit + GSON
 - Glide
-- Paging: Paging 3
+- Paging: Paging 3 + Flow
 - UI: Material Component

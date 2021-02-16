@@ -21,3 +21,6 @@ buildConfigField("String", "UNSPLASH_ACCESS_KEY", "APIKEY")
 - Glide
 - Paging: Paging 3 + Flow
 - UI: Material Component
+
+### For Java
+https://github.com/LeoAndo/ImageSearchApp4J

@@ -4,10 +4,10 @@ https://github.com/codinginflow/ImageSearchApp<br>
 
 # Usage
 
-1. unsplashのAPI KEYを取得する
+1. unsplashのAPI KEYを取得する<br>
 https://unsplash.com/developers
 
-2. 手順１で取得したAPI Keyをセットする
+2. 手順１で取得したAPI Keyをセットする<br>
 ```groovy
 buildConfigField("String", "UNSPLASH_ACCESS_KEY", "APIKEY")
 ```
@@ -16,7 +16,7 @@ buildConfigField("String", "UNSPLASH_ACCESS_KEY", "APIKEY")
 # Screentshot Pixcel 4 OS 10
 
 ## 縦向き
-<img src="capture.gif" width=320 />
+<img src="../capture.gif" width=320 />
 
 ## 横向き
 <img src="https://user-images.githubusercontent.com/16476224/123540744-8529f200-d77b-11eb-9e54-168e18dda900.png" width=320 />
@@ -33,6 +33,6 @@ buildConfigField("String", "UNSPLASH_ACCESS_KEY", "APIKEY")
 
 
 # 参考
-https://github.com/google/flexbox-layout
-https://developers-jp.googleblog.com/2017/03/build-flexible-layouts-with.html
-https://github.com/codinginflow/ImageSearchApp
+https://github.com/google/flexbox-layout<br><br><br>
+https://developers-jp.googleblog.com/2017/03/build-flexible-layouts-with.html<br><br>
+https://github.com/codinginflow/ImageSearchApp<br>

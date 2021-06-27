@@ -4,7 +4,7 @@ https://github.com/codinginflow/ImageSearchApp<br>
 simple explanation, `FlexboxLayout` is a `LinearLayout` with wrapping back function.<br>
 
 # readme
-[日本語](https://github.com/LeoAndo/ImageSearchApp/readme/README_jp.md)
+[日本語](https://github.com/LeoAndo/ImageSearchApp/blob/main/readme/README_jp.md)
 
 # Usage
 

@@ -37,6 +37,6 @@ buildConfigField("String", "UNSPLASH_ACCESS_KEY", "APIKEY")
 
 
 # reference
-https://github.com/google/flexbox-layout
-https://android-developers.googleblog.com/2017/02/build-flexible-layouts-with.html
-https://github.com/codinginflow/ImageSearchApp
+https://github.com/google/flexbox-layout<br>
+https://android-developers.googleblog.com/2017/02/build-flexible-layouts-with.html<br>
+https://github.com/codinginflow/ImageSearchApp<br>

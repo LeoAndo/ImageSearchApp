@@ -6,6 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.flexbox.FlexboxLayoutManager
 import com.template.imagesearchapp.R
 import com.template.imagesearchapp.data.UnSplashPhoto
 import com.template.imagesearchapp.databinding.ItemUnsplashPhotoBinding
@@ -52,6 +53,13 @@ class UnsplashPhotoAdapter(private val onItemClick: (UnSplashPhoto) -> Unit) :
                     .load(photo.user.profileImage.small)
                     .placeholder(R.drawable.ic_user)
                     .into(imageAvatar)
+
+                // FlexboxLayoutManager では xml ではなく、
+                // FlexboxLayoutManager.LayoutParams を使用して RecyclerView の各要素の属性を設定する.
+                val lp = itemView.layoutParams
+                if (lp is FlexboxLayoutManager.LayoutParams) {
+                    lp.flexGrow = 1.0f
+                }
             }
         }
     }
@@ -59,11 +67,11 @@ class UnsplashPhotoAdapter(private val onItemClick: (UnSplashPhoto) -> Unit) :
 
     companion object {
         private val PHOTO_COMPARATOR = object : DiffUtil.ItemCallback<UnSplashPhoto>() {
-            // oldItemとnewItemの値が同じ場合にtrue
+            // oldItemとnewItemの値が同じ場合にtrue (同値比較)
             override fun areItemsTheSame(oldItem: UnSplashPhoto, newItem: UnSplashPhoto): Boolean =
                 oldItem.id == newItem.id
 
-            // oldItemとnewItemが同じ要素を参照している場合にtrue
+            // oldItemとnewItemが同じ要素を参照している場合にtrue (同一比較)
             override fun areContentsTheSame(
                 oldItem: UnSplashPhoto,
                 newItem: UnSplashPhoto

@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import com.google.android.flexbox.FlexboxLayoutManager
 import com.template.imagesearchapp.R
 import com.template.imagesearchapp.databinding.FragmentGalleyBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,9 +43,12 @@ class GalleryFragment : Fragment(R.layout.fragment_galley) {
         }
 
 
-        binding.apply {
-            list.setHasFixedSize(true) // adapterの内容によってrecyclerViewのサイズに変動がない場合は trueにする.
-            list.adapter = adapter.withLoadStateHeaderAndFooter(
+
+        binding.list.apply {
+            layoutManager =
+                FlexboxLayoutManager(requireContext()) // default: FlexDirection.ROW, FlexWrap.WRAP, AlignItems.STRETCH
+            setHasFixedSize(true) // adapterの内容によってrecyclerViewのサイズに変動がない場合は trueにする.
+            this.adapter = adapter.withLoadStateHeaderAndFooter(
                 header = UnsplashPhotoLoadStateAdapter { adapter.retry() },
                 footer = UnsplashPhotoLoadStateAdapter { adapter.retry() },
             )
